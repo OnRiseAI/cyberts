@@ -1,0 +1,46 @@
+export const brand = {
+  name: "CyberTS",
+  tagline: "Proactive Data Defence",
+  parent: "AOF Group",
+  colors: {
+    navy: "#0A1F44",
+    lime: "#A4FF00",
+    green: "#00FF88",
+    gold: "#D4AF37",
+    goldHi: "#FFD700",
+    carbon: "#121212",
+    soft: "#F5F5F5",
+  },
+  gradients: {
+    shield: "linear-gradient(135deg, #A4FF00 0%, #00FF88 50%, #0A1F44 100%)",
+    page: "linear-gradient(180deg, #0A1F44 0%, #121212 100%)",
+    gold: "linear-gradient(135deg, #D4AF37 0%, #FFD700 100%)",
+  },
+  sectors: [
+    { id: "medical", name: "Medical & Biotech", copy: "Sensitive patient records & intellectual property" },
+    { id: "legal", name: "Legal & Finance", copy: "Confidential client data & financial exposure" },
+    { id: "defence", name: "Defence & Government", copy: "Military systems & classified contractors" },
+    { id: "banking", name: "Banking & Infrastructure", copy: "Payment systems & critical infrastructure" },
+  ],
+  pipeline: [
+    { id: "audit", label: "Audit", copy: "Identify vulnerabilities" },
+    { id: "secure", label: "Secure", copy: "Fortify infrastructure" },
+    { id: "certify", label: "Certify", copy: "Align UK/EU regulations" },
+    { id: "insure", label: "Insure", copy: "Enable insurability" },
+    { id: "monitor", label: "Monitor", copy: "Maintain ongoing defence" },
+  ],
+  pillars: [
+    { label: "Accredited", copy: "Trusted frameworks. Proven methodologies." },
+    { label: "Bespoke", copy: "Tailored to your systems. Never a template." },
+    { label: "Proactive", copy: "Threats identified before they impact you." },
+  ],
+  value: [
+    "Detect threats faster",
+    "Respond more intelligently",
+    "Defend with greater strength",
+    "Mitigate risks before they arise",
+    "Protect data, IP, and systems",
+    "Align with UK & EU regulations",
+    "Build resilience across operations",
+  ],
+} as const;

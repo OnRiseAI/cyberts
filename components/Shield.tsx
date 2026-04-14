@@ -1,0 +1,72 @@
+export function Shield({ size = 260 }: { size?: number }) {
+  return (
+    <svg
+      className="shield-breathe"
+      width={size}
+      height={size}
+      viewBox="0 0 260 300"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <defs>
+        <linearGradient id="shieldFill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#A4FF00" stopOpacity="0.16" />
+          <stop offset="50%" stopColor="#00FF88" stopOpacity="0.08" />
+          <stop offset="100%" stopColor="#0A1F44" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="shieldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#A4FF00" />
+          <stop offset="100%" stopColor="#00FF88" />
+        </linearGradient>
+        <linearGradient id="goldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#D4AF37" />
+          <stop offset="100%" stopColor="#FFD700" />
+        </linearGradient>
+      </defs>
+
+      <path
+        d="M 130 10 L 240 50 L 240 160 Q 240 240 130 290 Q 20 240 20 160 L 20 50 Z"
+        fill="url(#shieldFill)"
+        stroke="url(#goldStroke)"
+        strokeWidth="2"
+      />
+      <path
+        d="M 130 24 L 226 60 L 226 160 Q 226 228 130 272 Q 34 228 34 160 L 34 60 Z"
+        fill="none"
+        stroke="url(#shieldStroke)"
+        strokeWidth="1"
+        opacity="0.6"
+      />
+
+      <g stroke="#A4FF00" strokeWidth="0.7" opacity="0.55" fill="none">
+        <path d="M 60 90 L 80 90 L 80 110 L 100 110" />
+        <path d="M 200 90 L 180 90 L 180 110 L 160 110" />
+        <path d="M 60 190 L 90 190 L 90 170" />
+        <path d="M 200 190 L 170 190 L 170 170" />
+        <circle cx="80" cy="90" r="2" fill="#A4FF00" />
+        <circle cx="180" cy="90" r="2" fill="#A4FF00" />
+        <circle cx="90" cy="190" r="2" fill="#00FF88" />
+        <circle cx="170" cy="190" r="2" fill="#00FF88" />
+      </g>
+
+      <rect x="108" y="148" width="44" height="48" rx="3" fill="none" stroke="url(#shieldStroke)" strokeWidth="1.6" />
+      <path d="M 116 148 L 116 134 Q 116 116 130 116 Q 144 116 144 134 L 144 148"
+        fill="none" stroke="url(#shieldStroke)" strokeWidth="1.6" />
+      <circle cx="130" cy="168" r="3.5" fill="#A4FF00" />
+      <line x1="130" y1="168" x2="130" y2="182" stroke="#A4FF00" strokeWidth="2" />
+
+      <text
+        x="130" y="112"
+        textAnchor="middle"
+        fontFamily="var(--font-exo), sans-serif"
+        fontSize="22"
+        fontWeight="800"
+        fill="#A4FF00"
+        letterSpacing="1"
+      >
+        CyberTS
+      </text>
+    </svg>
+  );
+}
