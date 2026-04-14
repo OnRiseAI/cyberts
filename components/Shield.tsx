@@ -11,17 +11,17 @@ export function Shield({ size = 260 }: { size?: number }) {
     >
       <defs>
         <linearGradient id="shieldFill" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#A4FF00" stopOpacity="0.16" />
-          <stop offset="50%" stopColor="#00FF88" stopOpacity="0.08" />
-          <stop offset="100%" stopColor="#0A1F44" stopOpacity="0" />
+          <stop offset="0%" stopColor="#e8d79c" stopOpacity="0.12" />
+          <stop offset="50%" stopColor="#c9a14a" stopOpacity="0.06" />
+          <stop offset="100%" stopColor="#050608" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="shieldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#A4FF00" />
-          <stop offset="100%" stopColor="#00FF88" />
+          <stop offset="0%" stopColor="#e8d79c" />
+          <stop offset="100%" stopColor="#c9a14a" />
         </linearGradient>
         <linearGradient id="goldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#D4AF37" />
-          <stop offset="100%" stopColor="#FFD700" />
+          <stop offset="0%" stopColor="#c9a14a" />
+          <stop offset="100%" stopColor="#e6c878" />
         </linearGradient>
       </defs>
 
@@ -36,25 +36,25 @@ export function Shield({ size = 260 }: { size?: number }) {
         fill="none"
         stroke="url(#shieldStroke)"
         strokeWidth="1"
-        opacity="0.6"
+        opacity="0.55"
       />
 
-      <g stroke="#A4FF00" strokeWidth="0.7" opacity="0.55" fill="none">
+      <g stroke="#c9a14a" strokeWidth="0.7" opacity="0.55" fill="none">
         <path d="M 60 90 L 80 90 L 80 110 L 100 110" />
         <path d="M 200 90 L 180 90 L 180 110 L 160 110" />
         <path d="M 60 190 L 90 190 L 90 170" />
         <path d="M 200 190 L 170 190 L 170 170" />
-        <circle cx="80" cy="90" r="2" fill="#A4FF00" />
-        <circle cx="180" cy="90" r="2" fill="#A4FF00" />
-        <circle cx="90" cy="190" r="2" fill="#00FF88" />
-        <circle cx="170" cy="190" r="2" fill="#00FF88" />
+        <circle cx="80" cy="90" r="2" fill="#e8d79c" />
+        <circle cx="180" cy="90" r="2" fill="#e8d79c" />
+        <circle cx="90" cy="190" r="2" fill="#c9a14a" />
+        <circle cx="170" cy="190" r="2" fill="#c9a14a" />
       </g>
 
       <rect x="108" y="148" width="44" height="48" rx="3" fill="none" stroke="url(#shieldStroke)" strokeWidth="1.6" />
       <path d="M 116 148 L 116 134 Q 116 116 130 116 Q 144 116 144 134 L 144 148"
         fill="none" stroke="url(#shieldStroke)" strokeWidth="1.6" />
-      <circle cx="130" cy="168" r="3.5" fill="#A4FF00" />
-      <line x1="130" y1="168" x2="130" y2="182" stroke="#A4FF00" strokeWidth="2" />
+      <circle cx="130" cy="168" r="3.5" fill="#e8d79c" />
+      <line x1="130" y1="168" x2="130" y2="182" stroke="#e8d79c" strokeWidth="2" />
 
       <text
         x="130" y="112"
@@ -62,7 +62,7 @@ export function Shield({ size = 260 }: { size?: number }) {
         fontFamily="var(--font-exo), sans-serif"
         fontSize="22"
         fontWeight="800"
-        fill="#A4FF00"
+        fill="#e8d79c"
         letterSpacing="1"
       >
         CyberTS

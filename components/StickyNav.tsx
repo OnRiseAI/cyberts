@@ -17,7 +17,7 @@ export function StickyNav({ onCta }: { onCta: () => void }) {
         visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       }`}
       style={{
-        background: "rgba(10, 31, 68, 0.85)",
+        background: "rgba(4, 7, 15, 0.88)",
         backdropFilter: "blur(10px)",
         borderBottom: "1px solid rgba(212, 175, 55, 0.2)",
       }}
@@ -31,7 +31,7 @@ export function StickyNav({ onCta }: { onCta: () => void }) {
         </div>
         <button
           onClick={onCta}
-          className="display-wide text-[10px] md:text-xs text-navy bg-lime px-4 py-2.5 hover:bg-gold transition-colors"
+          className="display-wide text-[10px] md:text-xs text-base bg-lime px-4 py-3 md:py-2.5 hover:bg-gold transition-colors min-h-[44px]"
           style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%)" }}
         >
           Risk Review →

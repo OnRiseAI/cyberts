@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Exo_2, Inter_Tight } from "next/font/google";
 import "./globals.css";
 
@@ -22,12 +22,19 @@ export const metadata: Metadata = {
     "Elite, proactive cyber defence for high-risk sectors. Audit. Secure. Certify. Insure. Monitor.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#050608",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${exo.variable} ${inter.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-navy text-soft">
+      <body className="min-h-full flex flex-col bg-base text-soft">
         {children}
       </body>
     </html>

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { CircuitBackground } from "@/components/CircuitBackground";
+import { CityBackdrop } from "@/components/CityBackdrop";
 import { StickyNav } from "@/components/StickyNav";
 import { Hero } from "@/components/Hero";
 import { Problem } from "@/components/Problem";
@@ -18,25 +19,30 @@ export default function Home() {
 
   return (
     <main className="relative">
+      <div className="atmosphere" />
+      <CityBackdrop />
       <CircuitBackground />
       <div className="grain" />
+      <div className="vignette" />
       <StickyNav onCta={openModal} />
 
-      <Hero onCta={openModal} />
-      <Problem />
-      <Pipeline />
-      <Pillars />
-      <Sectors />
-      <CommercialValue />
-      <TrustClose onCta={openModal} />
+      <div className="relative z-10">
+        <Hero onCta={openModal} />
+        <Problem />
+        <Pipeline />
+        <Pillars />
+        <Sectors />
+        <CommercialValue />
+        <TrustClose onCta={openModal} />
+      </div>
 
-      <footer className="relative z-10 py-10 px-8 md:px-14 border-t border-gold/20">
+      <footer className="relative z-10 py-10 px-6 sm:px-8 md:px-14 border-t border-gold/20">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <div className="display-wide text-sm text-soft">CyberTS Ltd</div>
             <div className="eyebrow mt-1">AOF Group · United Kingdom</div>
           </div>
-          <div className="flex items-center gap-6 text-[10px] tracking-[0.2em] uppercase text-soft-dim">
+          <div style={{ color: "#ffffff" }} className="flex items-center gap-6 text-[10px] tracking-[0.2em] uppercase">
             <span>Trust</span>
             <span className="text-gold/50">·</span>
             <span>Compliance</span>

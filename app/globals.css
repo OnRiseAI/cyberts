@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0a1f44;
-  --color-navy-deep: #061534;
-  --color-lime: #a4ff00;
-  --color-green: #00ff88;
-  --color-gold: #d4af37;
-  --color-gold-hi: #ffd700;
-  --color-carbon: #121212;
-  --color-soft: #f5f5f5;
-  --color-soft-dim: #c9d1d9;
+  --color-base: #050608;
+  --color-ink: #0a0b0f;
+  --color-navy: #12151d;
+  --color-navy-deep: #080a0f;
+  --color-lime: #e8d79c;
+  --color-gold: #c9a14a;
+  --color-gold-hi: #e6c878;
+  --color-carbon: #0a0b0f;
+  --color-soft: #f2f2ef;
+  --color-soft-dim: #dde0e6;
 
   --font-display: var(--font-exo);
   --font-body: var(--font-inter);
@@ -21,11 +22,14 @@
 
 html,
 body {
-  background: #0a1f44;
-  color: #f5f5f5;
+  background: #050608;
+  color: #f2f2ef;
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
 }
 
 .display {
@@ -55,10 +59,29 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
-  opacity: 0.06;
+  z-index: 2;
+  opacity: 0.09;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201, 161, 74, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(201, 161, 74, 0.05) 0%, transparent 70%),
+    linear-gradient(180deg, #050608 0%, #0a0b0f 50%, #050608 100%);
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(ellipse 100% 80% at 50% 50%, transparent 35%, rgba(0, 0, 0, 0.6) 100%);
 }
 
 .scanline-sweep {
@@ -66,7 +89,7 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #a4ff00 50%, transparent);
+  background: linear-gradient(90deg, transparent, #e6c878 50%, transparent);
   opacity: 0;
   animation: sweep 2.6s ease-out 0.4s forwards;
 }
@@ -85,18 +108,28 @@ body {
 }
 
 .vbar {
-  background: linear-gradient(180deg, transparent, #a4ff00, transparent);
+  background: linear-gradient(180deg, transparent, #c9a14a, transparent);
   width: 1px;
 }
 
 .shield-breathe {
-  animation: breathe 3.4s ease-in-out infinite;
+  animation: breathe 3.8s ease-in-out infinite;
   transform-origin: center;
 }
 
 @keyframes breathe {
-  0%, 100% { opacity: 0.82; filter: drop-shadow(0 0 18px rgba(164, 255, 0, 0.28)); }
-  50% { opacity: 1; filter: drop-shadow(0 0 38px rgba(164, 255, 0, 0.55)); }
+  0%, 100% {
+    opacity: 0.9;
+    filter:
+      drop-shadow(0 0 28px rgba(232, 215, 156, 0.22))
+      drop-shadow(0 0 80px rgba(201, 161, 74, 0.28));
+  }
+  50% {
+    opacity: 1;
+    filter:
+      drop-shadow(0 0 50px rgba(232, 215, 156, 0.38))
+      drop-shadow(0 0 120px rgba(201, 161, 74, 0.4));
+  }
 }
 
 .cta-primary {
@@ -104,21 +137,24 @@ body {
   align-items: center;
   gap: 0.9rem;
   padding: 1.05rem 1.9rem;
-  background: linear-gradient(135deg, #a4ff00 0%, #00ff88 100%);
-  color: #0a1f44;
+  background: transparent;
+  color: #e6c878;
   font-family: var(--font-exo), sans-serif;
-  font-weight: 700;
-  font-size: 0.84rem;
-  letter-spacing: 0.18em;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  border: 1px solid rgba(164, 255, 0, 0.6);
+  border: 1px solid rgba(201, 161, 74, 0.7);
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .cta-primary:hover {
-  filter: drop-shadow(0 0 24px rgba(164, 255, 0, 0.55));
+  background: rgba(201, 161, 74, 0.08);
+  border-color: rgba(232, 215, 156, 0.9);
+  color: #f2f2ef;
+  box-shadow: inset 0 0 0 1px rgba(232, 215, 156, 0.2), 0 0 32px rgba(201, 161, 74, 0.2);
   transform: translate(-1px, -1px);
 }
 
@@ -126,27 +162,29 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.9rem;
-  padding: 1.1rem 2rem;
-  background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
-  color: #0a1f44;
+  padding: 1.15rem 2.2rem;
+  background: linear-gradient(135deg, #c9a14a 0%, #e6c878 100%);
+  color: #050608;
   font-family: var(--font-exo), sans-serif;
-  font-weight: 800;
-  font-size: 0.88rem;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
+  border: 1px solid rgba(232, 215, 156, 0.4);
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .cta-gold:hover {
-  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6));
+  filter: drop-shadow(0 0 36px rgba(232, 215, 156, 0.45));
 }
 
 .frame-gold {
   position: relative;
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  background: rgba(10, 31, 68, 0.4);
+  border: 1px solid rgba(201, 161, 74, 0.28);
+  background: linear-gradient(180deg, rgba(18, 21, 29, 0.6), rgba(5, 6, 8, 0.8));
+  box-shadow: inset 0 1px 0 rgba(232, 215, 156, 0.08), 0 20px 40px -20px rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(2px);
   transition: all 0.4s ease;
 }
@@ -157,7 +195,7 @@ body {
   position: absolute;
   width: 14px;
   height: 14px;
-  border-color: #d4af37;
+  border-color: #c9a14a;
 }
 
 .frame-gold::before {
@@ -173,11 +211,13 @@ body {
 }
 
 .frame-gold:hover {
-  border-color: rgba(212, 175, 55, 0.9);
-  background: rgba(10, 31, 68, 0.7);
+  border-color: rgba(232, 215, 156, 0.75);
+  background: linear-gradient(180deg, rgba(18, 21, 29, 0.8), rgba(5, 6, 8, 0.9));
+  box-shadow: inset 0 1px 0 rgba(232, 215, 156, 0.18), 0 30px 60px -20px rgba(201, 161, 74, 0.2);
 }
 
 .pipeline-line {
+  stroke: #c9a14a;
   stroke-dasharray: 1200;
   stroke-dashoffset: 1200;
   animation: draw 2.2s ease-out 0.4s forwards;
@@ -188,6 +228,15 @@ body {
 }
 
 ::selection {
-  background: #a4ff00;
-  color: #0a1f44;
+  background: #c9a14a;
+  color: #050608;
+}
+
+/* Prevent iOS Safari from zooming in when focusing form fields (triggers when font-size < 16px). */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }

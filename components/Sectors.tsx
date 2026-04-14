@@ -1,4 +1,7 @@
+"use client";
+import { motion } from "framer-motion";
 import { brand } from "@/lib/brand";
+import { fadeUp, fadeUpSmall, stagger, inView } from "@/lib/motion";
 
 const sectorIcons: Record<string, React.ReactNode> = {
   medical: (
@@ -37,53 +40,77 @@ const sectorIcons: Record<string, React.ReactNode> = {
 
 export function Sectors() {
   return (
-    <section className="relative py-28 md:py-40 px-8 md:px-14 bg-gradient-to-b from-navy to-navy-deep">
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="flex items-center gap-4 mb-14">
+    <section className="relative py-24 md:py-40 px-6 sm:px-8 md:px-14">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ink/70 to-transparent pointer-events-none" />
+      <motion.div
+        className="relative z-10 max-w-7xl mx-auto"
+        initial="hidden"
+        whileInView="show"
+        viewport={inView}
+        variants={stagger(0, 0.1)}
+      >
+        <motion.div variants={fadeUpSmall} className="flex items-center gap-4 mb-14">
           <span className="eyebrow">Section 05 · High-Risk Environments</span>
           <div className="h-px flex-1 bg-gradient-to-r from-gold/60 to-transparent" />
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-[1.1fr_1fr] gap-12 mb-20 items-end">
-          <h2 className="display text-3xl md:text-5xl lg:text-6xl leading-[0.95] max-w-2xl">
+          <motion.h2 variants={fadeUp} className="display text-3xl md:text-5xl lg:text-6xl leading-[0.95] max-w-2xl">
             Where the cost of
             <br />
             <span className="text-lime">a breach is measured</span>
             <br />
             in <span className="text-gold">decades of trust.</span>
-          </h2>
-          <p className="font-[family-name:var(--font-inter)] text-base text-soft-dim leading-relaxed max-w-md">
-            CyberTS protects the sectors where one incident rewrites a company&apos;s future — where IP theft, patient data loss, or payment compromise is not recoverable with a press release.
-          </p>
+          </motion.h2>
+          <motion.p variants={fadeUp} style={{ color: "#ffffff" }} className="font-[family-name:var(--font-inter)] text-base leading-relaxed max-w-md">
+            CyberTS protects the sectors where one incident rewrites a company&apos;s future — where IP theft, patient data loss, or payment compromise is not recoverable with a press release. Each of these environments carries a different regulator, a different attacker profile, and a different definition of catastrophic loss. We build a defence for each one individually — never a template stretched across four industries it was never designed to cover.
+          </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"
+          variants={stagger(0.2, 0.14)}
+        >
           {brand.sectors.map((sector, i) => (
-            <div
+            <motion.div
               key={sector.id}
-              className={`frame-gold p-7 md:p-8 min-h-[260px] flex flex-col justify-between ${i % 2 === 1 ? "md:mt-10" : ""}`}
+              variants={fadeUp}
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.4 }}
+              className="frame-gold p-7 md:p-9 h-full flex flex-col"
             >
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <svg width="44" height="44" viewBox="0 0 48 48" className="text-lime">
-                    {sectorIcons[sector.id]}
-                  </svg>
-                  <span className="display-wide text-[9px] text-gold">0{i + 1}</span>
-                </div>
-                <h3 className="display text-lg md:text-xl text-soft leading-tight mb-4">
-                  {sector.name}
-                </h3>
+              <div className="flex items-start justify-between mb-10">
+                <motion.svg
+                  width="40" height="40" viewBox="0 0 48 48" className="text-gold"
+                  whileHover={{ rotate: 4, scale: 1.06 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  {sectorIcons[sector.id]}
+                </motion.svg>
+                <span className="display-wide text-[9px] text-gold/80 mt-1">0{i + 1}</span>
               </div>
-              <div>
-                <div className="w-8 h-px bg-gold/50 mb-4" />
-                <p className="font-[family-name:var(--font-inter)] text-xs md:text-sm text-soft-dim leading-relaxed">
-                  {sector.copy}
+
+              <h3 className="display text-base md:text-lg text-soft leading-snug mb-4">
+                {sector.name}
+              </h3>
+              <p style={{ color: "#ffffff" }} className="font-[family-name:var(--font-inter)] text-xs md:text-[13px] leading-relaxed mb-auto">
+                {sector.copy}
+              </p>
+
+              <div className="mt-6 pt-6 border-t border-gold/20">
+                <p className="display-wide text-[9px] text-gold/80 mb-2">Threat Pattern</p>
+                <p style={{ color: "#ffffff" }} className="font-[family-name:var(--font-inter)] text-[11px] md:text-xs leading-relaxed mb-4">
+                  {sector.threat}
+                </p>
+                <p className="display-wide text-[9px] text-gold/80 mb-2">Regulatory Scope</p>
+                <p className="font-[family-name:var(--font-inter)] text-[10px] md:text-[11px] text-gold/90 leading-snug tracking-wide">
+                  {sector.regulations}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

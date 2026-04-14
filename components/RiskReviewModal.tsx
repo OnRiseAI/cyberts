@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { brand } from "@/lib/brand";
+import { ease } from "@/lib/motion";
 
 export function RiskReviewModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
@@ -15,8 +17,6 @@ export function RiskReviewModal({ open, onClose }: { open: boolean; onClose: () 
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
-
-  if (!open) return null;
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -35,16 +35,26 @@ export function RiskReviewModal({ open, onClose }: { open: boolean; onClose: () 
   }
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
-      style={{ background: "rgba(6, 15, 36, 0.92)", backdropFilter: "blur(8px)" }}
-      onClick={onClose}
-    >
-      <div
-        className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto frame-gold p-8 md:p-12"
-        style={{ background: "#0A1F44" }}
-        onClick={(e) => e.stopPropagation()}
-      >
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
+          style={{ background: "rgba(2, 4, 10, 0.94)", backdropFilter: "blur(10px)" }}
+          onClick={onClose}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.35, ease }}
+        >
+          <motion.div
+            className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto frame-gold p-8 md:p-12"
+            style={{ background: "linear-gradient(180deg, #070b16, #04070f)" }}
+            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0, scale: 0.92, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.94, y: 20 }}
+            transition={{ duration: 0.5, ease }}
+          >
         <button
           onClick={onClose}
           aria-label="Close"
@@ -57,7 +67,7 @@ export function RiskReviewModal({ open, onClose }: { open: boolean; onClose: () 
         <h3 className="display text-2xl md:text-3xl mt-4 mb-2">
           Cyber Risk Review<span className="text-lime">.</span>
         </h3>
-        <p className="text-xs text-soft-dim leading-relaxed mb-8 max-w-sm">
+        <p style={{ color: "#ffffff" }} className="text-xs leading-relaxed mb-8 max-w-sm">
           A CyberTS analyst will contact you within one business day. All information is treated under NDA.
         </p>
 
@@ -69,7 +79,7 @@ export function RiskReviewModal({ open, onClose }: { open: boolean; onClose: () 
               </svg>
             </div>
             <p className="display text-lg text-lime mb-2">Request received.</p>
-            <p className="text-xs text-soft-dim">You will hear from us within 24 hours.</p>
+            <p style={{ color: "#ffffff" }} className="text-xs">You will hear from us within 24 hours.</p>
           </div>
         ) : (
           <form onSubmit={submit} className="space-y-5">
@@ -119,8 +129,10 @@ export function RiskReviewModal({ open, onClose }: { open: boolean; onClose: () 
             </div>
           </form>
         )}
-      </div>
-    </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 
