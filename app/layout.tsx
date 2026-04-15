@@ -16,10 +16,28 @@ const inter = Inter_Tight({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://cyberts.co.uk";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "CyberTS — Proactive Data Defence",
   description:
     "Elite, proactive cyber defence for high-risk sectors. Audit. Secure. Certify. Insure. Monitor.",
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "CyberTS",
+    title: "CyberTS — Proactive Data Defence",
+    description:
+      "Elite, proactive cyber defence for high-risk sectors. Audit. Secure. Certify. Insure. Monitor.",
+    locale: "en_GB",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CyberTS — Proactive Data Defence",
+    description:
+      "Elite, proactive cyber defence for high-risk sectors. Audit. Secure. Certify. Insure. Monitor.",
+  },
 };
 
 export const viewport: Viewport = {
