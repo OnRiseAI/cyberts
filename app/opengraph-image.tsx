@@ -44,10 +44,8 @@ export default async function Image() {
           <span style={{ display: "flex", fontWeight: 800 }}>{brand.name}</span>
         </div>
 
-        {/* TODO(human): compose the center hero block — the main headline + supporting line.
-            This is what catches the eye in a Slack/LinkedIn unfurl, so the copy and hierarchy
-            matter more than any other part of the card. Use inline flex styles only (no Tailwind,
-            no grid). You have brand.tagline, brand.colors, and brand.gradients available. */}
+        {/* TODO: center hero block (headline + supporting line). Deferred — card currently
+            ships with brand mark + credentials only, blank middle. Use inline flex styles only. */}
 
         <div
           style={{
