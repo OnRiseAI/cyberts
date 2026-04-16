@@ -14,8 +14,8 @@ export function CityBackdrop() {
           <stop offset="100%" stopColor="#050608" stopOpacity="1" />
         </linearGradient>
         <radialGradient id="glow" cx="50%" cy="100%" r="80%">
-          <stop offset="0%" stopColor="#c9a14a" stopOpacity="0.14" />
-          <stop offset="100%" stopColor="#c9a14a" stopOpacity="0" />
+          <stop offset="0%" stopColor="#bf8900" stopOpacity="0.14" />
+          <stop offset="100%" stopColor="#bf8900" stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -26,7 +26,7 @@ export function CityBackdrop() {
         fill="url(#city)"
       />
 
-      <g fill="#e6c878" opacity="0.85">
+      <g fill="#d9a010" opacity="0.85">
         {[
           [62, 190], [104, 195], [142, 160], [222, 135], [302, 155], [382, 100],
           [422, 140], [502, 115], [542, 75], [622, 135], [702, 95], [782, 65],

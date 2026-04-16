@@ -72,7 +72,7 @@ export function Pipeline() {
           <svg className="absolute top-[38px] left-0 w-full h-4 z-0" viewBox="0 0 1200 20" preserveAspectRatio="none">
             <motion.line
               x1="60" y1="10" x2="1140" y2="10"
-              stroke="#c9a14a" strokeWidth="1.2"
+              stroke="#bf8900" strokeWidth="1.2"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={lineInView ? { pathLength: 1, opacity: 1 } : {}}
               transition={{ duration: 2.2, ease, delay: 0.3 }}
@@ -93,7 +93,7 @@ export function Pipeline() {
               >
                 <motion.div
                   className="w-[76px] h-[76px] rounded-full border border-gold/60 bg-base/80 backdrop-blur-sm flex items-center justify-center relative"
-                  whileHover={{ borderColor: "#e8d79c", boxShadow: "0 0 32px rgba(232,215,156,0.35)" }}
+                  whileHover={{ borderColor: "#e6c230", boxShadow: "0 0 32px rgba(232,215,156,0.35)" }}
                   transition={{ duration: 0.4 }}
                 >
                   <svg width="44" height="44" viewBox="0 0 48 48" className="text-lime">

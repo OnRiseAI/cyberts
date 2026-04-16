@@ -19,7 +19,7 @@ export function StickyNav({ onCta }: { onCta: () => void }) {
       style={{
         background: "rgba(4, 7, 15, 0.88)",
         backdropFilter: "blur(10px)",
-        borderBottom: "1px solid rgba(212, 175, 55, 0.2)",
+        borderBottom: "1px solid rgba(191, 137, 0, 0.2)",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-14 py-4 flex items-center justify-between">

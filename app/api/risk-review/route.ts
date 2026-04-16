@@ -9,9 +9,10 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
+    const host = req.headers.get("host") ?? "cyberts.co.uk";
     const payload = {
       ...body,
-      source: "cyberts.com",
+      source: host,
       submittedAt: new Date().toISOString(),
       userAgent: req.headers.get("user-agent") ?? null,
     };
@@ -23,11 +24,16 @@ export async function POST(req: NextRequest) {
     });
 
     if (!res.ok) {
-      return NextResponse.json({ ok: false }, { status: 502 });
+      const upstreamBody = await res.text().catch(() => "");
+      console.error("[risk-review] upstream failed", res.status, upstreamBody.slice(0, 300));
+      return NextResponse.json(
+        { ok: false, error: "upstream", status: res.status },
+        { status: 502 },
+      );
     }
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("[risk-review]", err);
-    return NextResponse.json({ ok: false }, { status: 500 });
+    return NextResponse.json({ ok: false, error: "exception" }, { status: 500 });
   }
 }

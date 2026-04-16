@@ -6,15 +6,15 @@ export const brand = {
     navy: "#0A1F44",
     lime: "#A4FF00",
     green: "#00FF88",
-    gold: "#D4AF37",
-    goldHi: "#FFD700",
+    gold: "#bf8900",
+    goldHi: "#d9a010",
     carbon: "#121212",
     soft: "#F5F5F5",
   },
   gradients: {
     shield: "linear-gradient(135deg, #A4FF00 0%, #00FF88 50%, #0A1F44 100%)",
     page: "linear-gradient(180deg, #0A1F44 0%, #121212 100%)",
-    gold: "linear-gradient(135deg, #D4AF37 0%, #FFD700 100%)",
+    gold: "linear-gradient(135deg, #bf8900 0%, #d9a010 100%)",
   },
   // TODO(CONFIRM): Replace these placeholder accreditation labels with the exact
   // certifications CyberTS actually holds (membership body + registration number).

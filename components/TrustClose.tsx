@@ -7,11 +7,21 @@ import { fadeUp, fadeUpSmall, stagger, scaleIn, inView, ease } from "@/lib/motio
 export function TrustClose({ onCta }: { onCta: () => void }) {
   return (
     <section className="relative py-24 md:py-48 px-6 sm:px-8 md:px-14 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <Image
+          src="/bg/tower-bridge.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center opacity-[0.07] grayscale mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-base via-transparent to-base" />
+      </div>
       <motion.div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(212, 175, 55, 0.22) 0%, rgba(7, 11, 22, 0.85) 45%, #04070f 100%)",
+            "radial-gradient(ellipse at center, rgba(191, 137, 0, 0.22) 0%, rgba(7, 11, 22, 0.85) 45%, #04070f 100%)",
         }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -22,7 +32,7 @@ export function TrustClose({ onCta }: { onCta: () => void }) {
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(135deg, transparent 0, transparent 40px, rgba(212, 175, 55, 0.08) 40px, rgba(212, 175, 55, 0.08) 41px)",
+            "repeating-linear-gradient(135deg, transparent 0, transparent 40px, rgba(191, 137, 0, 0.08) 40px, rgba(191, 137, 0, 0.08) 41px)",
         }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.3 }}
@@ -96,7 +106,7 @@ export function TrustClose({ onCta }: { onCta: () => void }) {
         <motion.h2 variants={fadeUp} className="display text-3xl md:text-5xl lg:text-6xl leading-[0.95] mb-12">
           <motion.span
             style={{
-              background: "linear-gradient(135deg, #c9a14a 0%, #e8d79c 50%, #c9a14a 100%)",
+              background: "linear-gradient(135deg, #bf8900 0%, #e6c230 50%, #bf8900 100%)",
               backgroundSize: "200% 100%",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",

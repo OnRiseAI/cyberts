@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { brand } from "@/lib/brand";
 import { fadeUp, fadeUpSmall, stagger, inView } from "@/lib/motion";
 
@@ -40,7 +41,17 @@ const sectorIcons: Record<string, React.ReactNode> = {
 
 export function Sectors() {
   return (
-    <section className="relative py-24 md:py-40 px-6 sm:px-8 md:px-14">
+    <section className="relative py-24 md:py-40 px-6 sm:px-8 md:px-14 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <Image
+          src="/bg/millennium-bridge.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center opacity-[0.07] grayscale mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-base via-transparent to-base" />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ink/70 to-transparent pointer-events-none" />
       <motion.div
         className="relative z-10 max-w-7xl mx-auto"

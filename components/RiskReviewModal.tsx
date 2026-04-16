@@ -336,7 +336,7 @@ function Field({
               onBlur?.();
             }}
             className="w-full bg-transparent py-4 pr-4 text-soft text-[14px] focus:outline-none"
-            style={{ caretColor: "#e6c878" }}
+            style={{ caretColor: "#d9a010" }}
           />
         </div>
         {valid === true && (
@@ -408,7 +408,7 @@ function TextareaField({
             onBlur={() => setFocused(false)}
             placeholder={float ? placeholder : undefined}
             className="w-full bg-transparent py-4 pr-4 text-soft text-[14px] focus:outline-none resize-none placeholder:text-soft/25"
-            style={{ caretColor: "#e6c878" }}
+            style={{ caretColor: "#d9a010" }}
           />
         </div>
       </div>
@@ -552,7 +552,7 @@ function ProgressBar({ step, status }: { step: 1 | 2; status: Status }) {
       <div className="flex-1 h-[2px] bg-gold/12 overflow-hidden">
         <motion.div
           className="h-full"
-          style={{ background: "linear-gradient(90deg, #c9a14a 0%, #e6c878 100%)" }}
+          style={{ background: "linear-gradient(90deg, #bf8900 0%, #d9a010 100%)" }}
           initial={false}
           animate={{ width: `${pct}%` }}
           transition={{ duration: 0.45, ease }}
@@ -601,7 +601,7 @@ function SuccessTakeover({ firstName, onClose }: { firstName: string; onClose: (
         transition={{ duration: 1.4, ease }}
         style={{
           background:
-            "radial-gradient(ellipse 70% 55% at 50% 35%, rgba(230, 200, 120, 0.22) 0%, rgba(201, 161, 74, 0.08) 30%, transparent 60%)",
+            "radial-gradient(ellipse 70% 55% at 50% 35%, rgba(217, 160, 16, 0.22) 0%, rgba(191, 137, 0, 0.08) 30%, transparent 60%)",
         }}
       />
 
@@ -618,12 +618,12 @@ function SuccessTakeover({ firstName, onClose }: { firstName: string; onClose: (
         <svg width="128" height="128" viewBox="0 0 100 100" aria-hidden>
           <defs>
             <linearGradient id="shieldStroke" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#e6c878" />
-              <stop offset="100%" stopColor="#c9a14a" />
+              <stop offset="0%" stopColor="#d9a010" />
+              <stop offset="100%" stopColor="#bf8900" />
             </linearGradient>
             <radialGradient id="shieldFill" cx="50%" cy="40%" r="60%">
-              <stop offset="0%" stopColor="rgba(230, 200, 120, 0.18)" />
-              <stop offset="100%" stopColor="rgba(201, 161, 74, 0)" />
+              <stop offset="0%" stopColor="rgba(217, 160, 16, 0.18)" />
+              <stop offset="100%" stopColor="rgba(191, 137, 0, 0)" />
             </radialGradient>
           </defs>
           <motion.path
@@ -636,7 +636,7 @@ function SuccessTakeover({ firstName, onClose }: { firstName: string; onClose: (
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
             transition={{ duration: 1.1, ease: "easeOut", delay: 0.25 }}
-            style={{ filter: "drop-shadow(0 0 24px rgba(230, 200, 120, 0.35))" }}
+            style={{ filter: "drop-shadow(0 0 24px rgba(217, 160, 16, 0.35))" }}
           />
           <motion.path
             d="M 30 50 L 44 64 L 70 36"
@@ -686,7 +686,7 @@ function SuccessTakeover({ firstName, onClose }: { firstName: string; onClose: (
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 2.1, ease }}
         className="mt-7 inline-flex items-center gap-3 px-4 py-2.5 border border-gold/40 relative z-10"
-        style={{ background: "rgba(201, 161, 74, 0.06)", clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)" }}
+        style={{ background: "rgba(191, 137, 0, 0.06)", clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)" }}
       >
         <span className="text-[9px] tracking-[0.32em] uppercase text-gold/60">Case File</span>
         <span className="w-px h-3 bg-gold/30" />
