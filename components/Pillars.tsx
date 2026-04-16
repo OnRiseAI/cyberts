@@ -13,9 +13,9 @@ export function Pillars() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-center opacity-[0.07] grayscale mix-blend-luminosity"
+          className="object-cover object-center opacity-[0.12] md:opacity-[0.07] grayscale mix-blend-luminosity"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-base via-transparent to-base" />
+        <div className="absolute inset-0 bg-gradient-to-b from-base/80 via-transparent to-base/80" />
       </div>
       <motion.div
         className="relative z-10 max-w-7xl mx-auto"
