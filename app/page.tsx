@@ -41,6 +41,12 @@ export default function Home() {
           <div>
             <div className="display-wide text-sm text-soft">CyberTS Ltd</div>
             <div className="eyebrow mt-1">AOF Group · United Kingdom</div>
+            <a
+              href="mailto:support@cyberts.co.uk"
+              className="inline-block mt-2 text-[11px] tracking-[0.18em] text-gold/80 hover:text-gold-hi transition-colors"
+            >
+              support@cyberts.co.uk
+            </a>
           </div>
           <div style={{ color: "#ffffff" }} className="flex items-center gap-6 text-[10px] tracking-[0.2em] uppercase">
             <span>Trust</span>
